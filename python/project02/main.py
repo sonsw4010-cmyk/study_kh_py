@@ -60,10 +60,10 @@ print(y)
 print(z)
 '''
 
-
+'''
 students = [('김철수', 85), ('이영희', 92), ('박민수', 78)]
 
-# 1) 모든 학생 이름과 점수를 언패킹으로 출력
+# 1) 모든 학생 이름과 점수를 출력
 print(students[0])
 print(students[1])
 print(students[2])
@@ -75,3 +75,55 @@ print(students[2][0])
 print(students[0][1])
 print(students[1][1])
 print(students[2][1])
+
+'''
+
+'''
+x = {1,2,3}
+y = {2,3,4}
+
+result = x|y  #합집합
+print(result)
+
+result = x&y #교집합
+print(result)
+
+result = x-y #차집합
+print(result)'''
+
+
+#예습인듯 예습아닌 시바꺼 이거 예습아니라 진도잖아 if문>> 조건식이란?? bool 타입이 값으로 나오는 거시에오 (T/F)
+# 조건 맞는 실행문(들여쓰기가 되어있는) 을 전부 실행함
+
+'''
+if True:
+    print("hello")  # 조건이 없어서 참 트루라 헬로
+else:
+    print("hi")
+
+if False:
+    print("hello")  # 이중부정은 긍정 하이요
+else:
+    print("hi")
+
+x = True                   #x가 투르라 헬로우
+if x:
+    print("hello")
+else:
+    print("hi")
+'''
+
+n = int(input("밥알이 맻개고"))
+result = 280<= n <= 320
+
+if result:
+    print("그래, 보통 초밥의 밥알은 320개가 적당하지만, 술안주로 낼 때는 손님이 배부르지 않도록 280개만 쥐어야 한다")
+else:
+    print("초밥이 얼굴로 날아온다")
+
+
+
+
+
+
+
