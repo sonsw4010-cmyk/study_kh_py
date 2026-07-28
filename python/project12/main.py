@@ -1,8 +1,8 @@
 from model.animal import Animal
-from model.animal import Bark
 from model.food import  Food
 from model.user import User
 from model.musinsa_user import Musinsa_user
+from model.duo_user import User as Duo_user
 
 
 x1 = Animal("바둑이",1)
@@ -15,6 +15,8 @@ print(x1.age)
 print(x2.age)
 print(x3.age)
 x1.bark()
+x2.bark()
+x3.bark()
 
 
 
@@ -44,11 +46,36 @@ print(z1.nickname)
 print(z2.nickname)
 print(z3.nickname)
 
+w1 = Duo_user()
+w2 = Duo_user()
+w3 = Duo_user()
+w4 = Duo_user()
+
 a1 = Musinsa_user("케로로",1234,"XL",170)
-a2 = Musinsa_user("타마마",1234,"XL",170)
-a3 = Musinsa_user("기로로",1234,"XL",170)
-a4 = Musinsa_user("도로로",1234,"XL",170)
+a2 = Musinsa_user("타마마",1234,"XL",175)
+a3 = Musinsa_user("기로로",1234,"XL",160)
+a4 = Musinsa_user("도로로",1234,"XL",180)
 a5 = Musinsa_user("쿠루루",1234,"XL",170)
+print(a1.username)
+print(a2.username)
+print(a3.username)
+print(a4.username)
+print(a5.username)
+print(a1.password)
+print(a2.password)
+print(a3.password)
+print(a4.password)
+print(a5.password)
+print(a1.size)
+print(a2.size)
+print(a3.size)
+print(a4.size)
+print(a5.size)
+print(a1.cm)
+print(a2.cm)
+print(a3.cm)
+print(a4.cm)
+print(a5.cm)
 
 
 
