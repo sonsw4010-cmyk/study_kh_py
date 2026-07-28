@@ -1,8 +1,6 @@
 #등록하기
 from model.book import Book
-
 book_list = []
-
 def enroll_book():
     print("\n------도서등록-------")
     title = input("도서 제목 :")
