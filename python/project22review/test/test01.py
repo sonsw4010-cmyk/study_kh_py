@@ -1,5 +1,6 @@
 
 '''
+x = []
 빈 배열에 이러면 오류남
 x[0] = 10
 x[1] = 20
@@ -17,7 +18,7 @@ x.append(a)
 x.append(b)
 x.append(c)
 '''
-x = []
+
 num = 10
 
 for i in range(3):
