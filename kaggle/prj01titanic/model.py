@@ -1,0 +1,37 @@
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+
+# data
+train = pd.read_csv('data/train.csv')
+test = pd.read_csv('data/test.csv')
+
+# 전처리 및 특징 만들기 (train, test 둘 다 적용)
+for df in [train, test]:
+    # 결측치 처리 및 인코딩
+    df["Age"] = df["Age"].fillna(df.groupby("Pclass")["Age"].transform("median"))
+    df["Sex"] = (df["Sex"] == "female").astype(int)
+    df["Fare"] = df["Fare"].fillna(df["Fare"].median())
+
+    # 특징 만들기
+    df["FamilySize"] = df["SibSp"] + df["Parch"] + 1
+    df["Title"] = df["Name"].str.extract(r',\s*([^\.]+)\.')
+    df["Title"] = df["Title"].replace(["Mlle", "Ms"], "Miss").replace("Mme", "Mrs")
+    df["Title"] = df["Title"].replace(
+        ['Lady', 'Countess', 'Capt', 'Col', 'Don', 'Dr', 'Major', 'Rev', 'Sir', 'Jonkheer', 'Dona'], "Rare")
+    df["Title"] = df["Title"].map({"Mr": 1, "Miss": 2, "Mrs": 3, "Master": 4, "Rare": 5})
+
+
+# 특징고르기
+features = ["Pclass", "Sex", "Age", "Fare", "FamilySize", "Title"]
+X = train[features]
+y = train["Survived"]
+
+# 학습
+m = RandomForestClassifier(n_estimators=10000, random_state=123,max_depth=4)
+m.fit(X, y)
+
+# 예측
+result = m.predict(test[features])
+test["Survived"] = result
+
+test[["PassengerId", "Survived"]].to_csv("data/result.csv", index=False)
